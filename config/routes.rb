@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get :root, to: 'welcome#index'
 
   resources :merchants do
@@ -38,11 +37,9 @@ Rails.application.routes.draw do
     resources :orders, only: :show
     resources :items, only: [:index, :new, :create, :edit, :update, :destroy]
     resources :discounts
-
     put '/items/:id/change_status', to: 'items#change_status'
     get '/orders/:id/fulfill/:order_item_id', to: 'orders#fulfill'
   end
-  # get '/merchant/discounts', to: 'discounts#index'
 
   namespace :admin do
     get '/', to: 'dashboard#index', as: :dashboard
