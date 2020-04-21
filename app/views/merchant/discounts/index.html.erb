@@ -1,1 +1,6 @@
 <h1>My Discounts</h1>
+
+<% @discounts.each do |discount| %>
+  <p><%= number_to_percentage(discount.discount_percentage, precision: 0)%>
+    - for <%= discount.quantity_required %> or more bulk items</p>
+<% end %>
